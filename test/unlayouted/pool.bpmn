@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_09nhn5q" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.36.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.23.0">
+  <bpmn:collaboration id="Collaboration_1bygxoo">
+    <bpmn:participant id="Participant_0nm09yb" processRef="Process_13s5v3m" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_13s5v3m" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1cvjraq</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_1j6lrvw">
+      <bpmn:incoming>Flow_1cvjraq</bpmn:incoming>
+      <bpmn:outgoing>Flow_05f8zec</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_14ea484">
+      <bpmn:incoming>Flow_05f8zec</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1cvjraq" sourceRef="StartEvent_1" targetRef="Activity_1j6lrvw" />
+    <bpmn:sequenceFlow id="Flow_05f8zec" sourceRef="Activity_1j6lrvw" targetRef="Event_14ea484" />
+  </bpmn:process>
+</bpmn:definitions>
