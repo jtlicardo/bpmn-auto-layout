@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0gt7cqx" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.36.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.23.0">
+  <bpmn:collaboration id="Collaboration_05aqort">
+    <bpmn:participant id="Participant_1qf7vyi" name="Pool" processRef="Process_0mar0f9" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_0mar0f9" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_0dtcc31">
+      <bpmn:lane id="Lane_039bu9v" name="Lane 1">
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1qdkska</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0cavc9y</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_1oyzb35</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_1vn243v" name="Lane 2">
+        <bpmn:flowNodeRef>Activity_0hzplcf</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1vq5gdc</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_1qdkska" name="Task 1">
+      <bpmn:incoming>Flow_1vq5gdc</bpmn:incoming>
+      <bpmn:outgoing>Flow_11wpebl</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1vq5gdc" sourceRef="StartEvent_1" targetRef="Activity_1qdkska" />
+    <bpmn:sequenceFlow id="Flow_11wpebl" sourceRef="Activity_1qdkska" targetRef="Activity_0hzplcf" />
+    <bpmn:task id="Activity_0hzplcf" name="Task 2">
+      <bpmn:incoming>Flow_11wpebl</bpmn:incoming>
+      <bpmn:outgoing>Flow_11bky7m</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_11bky7m" sourceRef="Activity_0hzplcf" targetRef="Activity_0cavc9y" />
+    <bpmn:task id="Activity_0cavc9y" name="Task 3">
+      <bpmn:incoming>Flow_11bky7m</bpmn:incoming>
+      <bpmn:outgoing>Flow_1g7rpet</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_1oyzb35">
+      <bpmn:incoming>Flow_1g7rpet</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1g7rpet" sourceRef="Activity_0cavc9y" targetRef="Event_1oyzb35" />
+  </bpmn:process>
+</bpmn:definitions>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_06ark57" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.36.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.23.0">
+  <bpmn:collaboration id="Collaboration_175gjik">
+    <bpmn:participant id="Participant_044cc44" name="This is a pool!" processRef="Process_0gsdo7i" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_0gsdo7i" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="This is a start event!">
+      <bpmn:outgoing>Flow_09sfzjl</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="Gateway_1kav5my">
+      <bpmn:incoming>Flow_09sfzjl</bpmn:incoming>
+      <bpmn:outgoing>Flow_0s7sgmm</bpmn:outgoing>
+      <bpmn:outgoing>Flow_098pp11</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_1x0ev9m" name="Task 1">
+      <bpmn:incoming>Flow_0s7sgmm</bpmn:incoming>
+      <bpmn:outgoing>Flow_1nxvoyy</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_0uw3te8" name="Task 2">
+      <bpmn:incoming>Flow_098pp11</bpmn:incoming>
+      <bpmn:outgoing>Flow_08nlo98</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_0826en9">
+      <bpmn:incoming>Flow_08nlo98</bpmn:incoming>
+      <bpmn:incoming>Flow_1nxvoyy</bpmn:incoming>
+      <bpmn:outgoing>Flow_0a0nqam</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_1elp64a" name="Task 3">
+      <bpmn:incoming>Flow_0a0nqam</bpmn:incoming>
+      <bpmn:outgoing>Flow_1kn69jl</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_1vyy7n0" name="This is an end event!">
+      <bpmn:incoming>Flow_1kn69jl</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_09sfzjl" sourceRef="StartEvent_1" targetRef="Gateway_1kav5my" />
+    <bpmn:sequenceFlow id="Flow_0s7sgmm" sourceRef="Gateway_1kav5my" targetRef="Activity_1x0ev9m" />
+    <bpmn:sequenceFlow id="Flow_098pp11" sourceRef="Gateway_1kav5my" targetRef="Activity_0uw3te8" />
+    <bpmn:sequenceFlow id="Flow_1nxvoyy" sourceRef="Activity_1x0ev9m" targetRef="Gateway_0826en9" />
+    <bpmn:sequenceFlow id="Flow_08nlo98" sourceRef="Activity_0uw3te8" targetRef="Gateway_0826en9" />
+    <bpmn:sequenceFlow id="Flow_0a0nqam" sourceRef="Gateway_0826en9" targetRef="Activity_1elp64a" />
+    <bpmn:sequenceFlow id="Flow_1kn69jl" sourceRef="Activity_1elp64a" targetRef="Event_1vyy7n0" />
+  </bpmn:process>
+</bpmn:definitions>
