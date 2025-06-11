@@ -10,6 +10,8 @@ Make sure you have installed the dependencies:
 npm install
 ```
 
+**Note:** If you manually edit the bpmn-auto-layout library files, you'll need to rerun `npm install` to ensure the changes are properly integrated.
+
 ## Usage
 
 ### Basic Usage
